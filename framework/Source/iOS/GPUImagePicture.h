@@ -35,4 +35,6 @@
 - (BOOL)processImageWithCompletionHandler:(void (^)(void))completion;
 - (void)processImageUpToFilter:(GPUImageOutput<GPUImageInput> *)finalFilterInChain withCompletionHandler:(void (^)(UIImage *processedImage))block;
 
+@property (nonatomic, assign) CMTime frameTime;
+
 @end

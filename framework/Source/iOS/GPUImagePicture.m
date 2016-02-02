@@ -79,6 +79,8 @@
     {
 		return nil;
     }
+
+    _frameTime = kCMTimeIndefinite;
     
     hasProcessedImage = NO;
     self.shouldSmoothlyScaleOutput = smoothlyScaleOutput;
@@ -330,7 +332,7 @@
             [currentTarget setCurrentlyReceivingMonochromeInput:NO];
             [currentTarget setInputSize:pixelSizeOfImage atIndex:textureIndexOfTarget];
             [currentTarget setInputFramebuffer:outputFramebuffer atIndex:textureIndexOfTarget];
-            [currentTarget newFrameReadyAtTime:kCMTimeIndefinite atIndex:textureIndexOfTarget];
+            [currentTarget newFrameReadyAtTime:_frameTime atIndex:textureIndexOfTarget];
         }
         
         dispatch_semaphore_signal(imageUpdateSemaphore);
